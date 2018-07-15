@@ -16,8 +16,11 @@ Or, if you'd like to dive right in, follow these steps.
 - Select the application type Other, enter the name "Drive API Quickstart", and click the Create button.
 - Click OK to dismiss the resulting dialog.
 - Click the (Download JSON) button to the right of the client ID. Move this file to your working directory and rename it client_secrets.json.
+- Place the client_secrets.json file in `secrets/client_secrets.json` along side the drive.rb script.
 
 ## Install the Google Client Library
+
+Requires Ruby `2.3.1`.
 
 To run the quickstart sample, you'll need to install the Google API client
 library.
@@ -26,7 +29,7 @@ library.
 
 ## Set up the sample
 
-Create a text file named `document.txt`, containing the text `Hello world!`.
+Create a text file named `document.docx`.
 
 ## Run the Sample
 
@@ -35,7 +38,7 @@ library, and set up the sample source code, the sample is ready to run.  The
 command-line samples provide a link you'll need to visit in order to
 authorize the sample.
 
-    bundle exec ruby drive.rb
+    bundle exec ruby drive.rb document.docx
 
 1. Browse to the provided URL in your web browser.
 2. If you are not already logged into your Google account, you will be prompted
@@ -44,9 +47,9 @@ authorize the sample.
 3. The application automatically receives the authentication code and resumes
    operation.
 
-When you finish these steps, `document.txt` is now stored in Google Drive.
+When you finish these steps, `document.docx` is now stored in Google Drive.
 The command-line samples print Information about the Google Drive file to the screen.
-The file `document.txt` is accessible in Google Drive, and is titled "My
+The file `document.docx` is accessible in Google Drive, and is titled "My
 Document".
 
 By editing the sample code to provide paths to new files and new titles,
