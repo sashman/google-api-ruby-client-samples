@@ -38,7 +38,7 @@ def setup()
   # Note: FileStorage is not suitable for multi-user applications.
   file_storage = Google::APIClient::FileStorage.new(CREDENTIAL_STORE_FILE)
   if file_storage.authorization.nil?
-    client_secrets = Google::APIClient::ClientSecrets.load
+    client_secrets = Google::APIClient::ClientSecrets.load("secrets")
     # The InstalledAppFlow is a helper class to handle the OAuth 2.0 installed
     # application flow, which ties in with FileStorage to store credentials
     # between runs.
@@ -75,10 +75,10 @@ def insert_file(client, drive)
   file = drive.files.insert.request_schema.new({
     'title' => 'My document',
     'description' => 'A test document',
-    'mimeType' => 'text/plain'
+    'mimeType' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
   })
 
-  media = Google::APIClient::UploadIO.new('document.txt', 'text/plain')
+  media = Google::APIClient::UploadIO.new(ARGV[0], 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')
   result = client.execute(
     :api_method => drive.files.insert,
     :body_object => file,
